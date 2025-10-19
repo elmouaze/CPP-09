@@ -7,9 +7,10 @@ int main(int ac, char **av)
         return (std::cout << "Error: could not open file." << std::endl, 1);
     try {
         BitcoinExchange btc(av[1]);
-    } catch (const BitcoinExchange::FileOpenException& e) {
+    } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
         return 1;
     }
     return 0;
 }
+

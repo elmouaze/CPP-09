@@ -9,6 +9,8 @@
 #include <climits>
 #include <exception>
 #include <iomanip>
+#include <cstdlib> 
+
 class BitcoinExchange {
     
     std::map<std::string, float> exchange_db;
@@ -21,12 +23,14 @@ class BitcoinExchange {
 
         void fill_db();
         void parse_file(const std::string& filename);
-    class FileOpenException : public std::exception {
+        class FileOpenException : public std::exception {
         public:
-            const char* what() const throw() {
-                return "Error: could not open file.";
-            }
+             const char* what() const throw();
         };
-};
+        class InvalidFileFormatException : public std::exception {
+        public:
+            const char* what() const throw();
+        };
+    };
 
 #endif
