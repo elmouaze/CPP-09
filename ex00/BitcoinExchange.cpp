@@ -170,6 +170,7 @@ void BitcoinExchange::parse_file(const std::string &filename)
                 continue;
             }
             std::map<std::string, float>::iterator it = exchange_db.find(date);
+            std::cout << std::fixed;
             if (it != exchange_db.end())
             {
                 double exchange_rate = static_cast<double>(it->second);
