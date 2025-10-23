@@ -4,6 +4,8 @@
 #include <exception>
 #include <climits>
 #include <algorithm>
+#include <ctime>
+
 class PmergeMe
 {
 
@@ -11,6 +13,12 @@ class PmergeMe
         std::vector<int> _numbers;
         std::vector<int> _sortedNumbers;
         std::deque<int> _dequeNumbers;
+        std::clock_t _DstartTime;
+        std::clock_t _DendTime;
+        std::clock_t _VstartTime;
+        std::clock_t _VendTime;
+
+
 
     public:
     PmergeMe();
@@ -19,9 +27,9 @@ class PmergeMe
     ~PmergeMe();
 
     void magic(char **arg,int size);
-    void _parse(char **arg,int size);
-    void _sort();
-    
+    void _handle_vector(char **arg, int size);
+    void _handle_deque(char **arg, int size);
+
     void _display();
     int convert_to_int(char *str);
     class InvalidArgumentException : public std::exception

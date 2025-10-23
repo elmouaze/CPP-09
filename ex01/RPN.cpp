@@ -45,38 +45,46 @@ void RPN::calculate()
         {
             if (st.size() < 2)
             {
-                std::cout << "Error1" << std::endl;
+                std::cout << "Error" << std::endl;
                 return;
             }
-            long long rhs = st.top(); st.pop();
-            long long lhs = st.top(); st.pop();
+            long long rhs = st.top();
+            st.pop();
+            long long lhs = st.top();
+            st.pop();
 
             long long res = 0;
             switch (c)
             {
-                case '+': res = lhs + rhs; break;
-                case '-': res = lhs - rhs; break; 
-                case '*': res = lhs * rhs; break;
-                case '/':
-                    if (rhs == 0)
-                    {
-                        std::cout << "Error" << std::endl;
-                        return;
-                    }
-                    res = lhs / rhs; 
-                    break;
+            case '+':
+                res = lhs + rhs;
+                break;
+            case '-':
+                res = lhs - rhs;
+                break;
+            case '*':
+                res = lhs * rhs;
+                break;
+            case '/':
+                if (rhs == 0)
+                {
+                    std::cout << "Error" << std::endl;
+                    return;
+                }
+                res = lhs / rhs;
+                break;
             }
             st.push(res);
             continue;
         }
 
-        std::cout << "Error2" << std::endl;
+        std::cout << "Error" << std::endl;
         return;
     }
 
     if (st.size() != 1)
     {
-        std::cout << "Error3" << std::endl;
+        std::cout << "Error" << std::endl;
         return;
     }
 
